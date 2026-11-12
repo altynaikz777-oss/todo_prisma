@@ -1,0 +1,106 @@
+:root {
+  --bg: #f3f4f6;
+  --surface: #fff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #d1d5db;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --danger: #b91c1c;
+  --danger-bg: #fee2e2;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #475569;
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --danger: #fca5a5;
+    --danger-bg: #450a0a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 24px 16px 48px;
+  line-height: 1.4;
+}
+
+/* ---------- layout ---------- */
+.card {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+h1 { margin: 0 0 16px; font-size: 24px; }
+
+/* ---------- forms ---------- */
+.row { display: flex; gap: 8px; }
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  background: var(--surface);
+  color: var(--text);
+}
+.row input[type="text"] { flex: 1; width: auto; }
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  background: var(--border);
+  color: var(--text);
+}
+.btn.primary { background: var(--primary); color: #fff; }
+.btn.primary:hover { background: var(--primary-hover); }
+.btn.danger { background: var(--danger-bg); color: var(--danger); }
+.btn.sm { padding: 6px 10px; }
+
+/* ---------- todo list ---------- */
+ul { list-style: none; padding: 0; margin: 16px 0 0; }
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+li:last-child { border-bottom: 0; }
+li input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary); }
+li span { flex: 1; word-break: break-word; }
+li.done span { text-decoration: line-through; color: var(--muted); }
+.empty { color: var(--muted); text-align: center; padding: 16px 0; justify-content: center; }
+
+/* ---------- messages ---------- */
+.error {
+  color: var(--danger);
+  font-size: 14px;
+  margin-top: 8px;
+  min-height: 18px;
+}
+
