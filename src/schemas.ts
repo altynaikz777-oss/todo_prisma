@@ -13,3 +13,17 @@ export const updateTodoSchema = z.object({
 export const idParamSchema = z.object({
   id: z.coerce.number().int().positive(),
 });
+
+export const registerSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+
+export const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(1),
+});
+
+export const roleSchema = z.object({
+  role: z.enum(["ADMIN", "USER"]),
+});

@@ -19,7 +19,7 @@ prisma.$on("error", (e: LogEvent) =>
 export const prismaErrorStatus = (err: unknown) => {
   const code = (err as { code?: string } | null)?.code;
   if (code === "P2002") return { status: 409, error: "Already exists" };
-  if (code === "P2025") return { status: 404, error: "Not found" };
+  if (code === "P2025") {console.log(err); return { status: 404, error: "Not found" }};
   if (code === "P2003")
     return { status: 400, error: "Related record does not exist" };
   return { status: 500, error: "Database error" };

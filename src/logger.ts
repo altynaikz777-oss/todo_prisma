@@ -12,7 +12,7 @@ const serializeErr = winston.format((info) => {
 
 export const logger = winston.createLogger({
   level: process.env.LOG_LEVEL || "info",
-  format: combine(timestamp(),  serializeErr(), json()),
+  format: combine(timestamp(), serializeErr(), json()),
   transports: [
     new winston.transports.File({ filename: "logs/error.log", level: "error" }),
     new winston.transports.File({ filename: "logs/combined.log" }),
